@@ -1,0 +1,241 @@
+/* General body styling for a classic feel */
+body {
+    font-family: 'Georgia', serif; /* Classic serif font */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Muted, earthy background, simulating old paper or wood */
+    background: linear-gradient(135deg, #f0e6d6, #e0d0b8); /* Soft, warm gradient */
+    margin: 0;
+    color: #4a4a4a; /* Darker text for contrast on light background */
+    overflow: hidden;
+}
+
+/* Game container styling - less transparent, more solid */
+.game-container {
+    background-color: #ffffff; /* Solid white or off-white */
+    padding: 30px;
+    border-radius: 12px; /* Slightly less rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Classic shadow */
+    text-align: center;
+    border: 2px solid #a0522d; /* Darker, wood-like border */
+    position: relative; /* Needed for potential future absolute positioning */
+}
+
+/* Game title styling */
+h1 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* More ornate classic font */
+    font-size: 3.2em;
+    margin-bottom: 25px;
+    color: #8b4513; /* SaddleBrown for a classic feel */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Game board styling - more defined grid lines */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px; /* Smaller gap for a tighter grid */
+    margin: 30px auto;
+    width: 315px; /* 3*100px + 2*5px */
+    height: 315px; /* 3*100px + 2*5px */
+    background-color: #d2b48c; /* Tan/parchment color for the board */
+    border-radius: 8px; /* Less rounded */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 3px solid #8b4513; /* Stronger border */
+}
+
+/* Individual cell styling - more like a grid square */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #f5deb3; /* Lighter tan for cells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.5em; /* Slightly larger X/O */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px; /* Minimal rounding */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    color: #4a4a4a; /* Dark color for X/O */
+    border: 1px solid #c0a080; /* Subtle cell border */
+}
+
+/* Hover effect for cells - more subtle */
+.cell:not(.x):not(.o):hover {
+    background-color: #e6cc9f; /* Slightly darker tan on hover */
+    transform: none; /* No scaling on hover for classic feel */
+}
+
+/* Styling for 'X' and 'O' marks - less glow, more distinct color */
+.cell.x {
+    color: #a0522d; /* SaddleBrown for 'X' */
+    text-shadow: none; /* No glow */
+}
+
+.cell.o {
+    color: #4682b4; /* SteelBlue for 'O' */
+    text-shadow: none; /* No glow */
+}
+
+/* Message display styling */
+.message {
+    font-size: 1.6em;
+    margin-top: 25px;
+    font-weight: 500; /* Medium weight */
+    color: #333; /* Darker color */
+}
+
+/* Reset button styling - more subdued */
+.reset-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 25px;
+    background-color: #8b4513; /* SaddleBrown */
+    color: white;
+    border: 2px solid #654321; /* Darker brown border */
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hover and active effects for the button */
+.reset-button:hover {
+    background-color: #a0522d; /* Lighter brown on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Popup Styles --- */
+.popup-overlay {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade in/out */
+}
+
+.popup-overlay.show {
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Make visible */
+}
+
+.popup-content {
+    background-color: #fffaf0; /* Creamy background for popup */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transform: scale(0.8); /* Start smaller for animation */
+    transition: transform 0.3s ease; /* Smooth scale animation */
+    border: 3px solid #8b4513; /* Classic border */
+    max-width: 90%; /* Ensure it fits on smaller screens */
+}
+
+.popup-overlay.show .popup-content {
+    transform: scale(1); /* Scale to normal size when shown */
+}
+
+.popup-content h2 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 2.5em;
+    color: #8b4513;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.popup-button {
+    padding: 15px 35px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #4682b4; /* SteelBlue for the button */
+    color: white;
+    border: 2px solid #36648b; /* Darker blue border */
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.popup-button:hover {
+    background-color: #5b9bd5; /* Lighter blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        gap: 6px; /* Adjusted gap */
+        width: 258px; /* 3*80px + 2*6px */
+        height: 258px; /* 3*80px + 2*6px */
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 3.8em;
+    }
+
+    .message {
+        font-size: 1.4em;
+    }
+
+    .reset-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .popup-content {
+        padding: 30px;
+    }
+
+    .popup-content h2 {
+        font-size: 2em;
+    }
+
+    .popup-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
