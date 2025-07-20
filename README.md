@@ -1,4 +1,4 @@
-### Classic Tic-Tac-Toe Game
+# Classic Tic-Tac-Toe Game
 A simple, interactive Tic-Tac-Toe game with a classic aesthetic and a celebratory popup for wins or draws.
 
 ## 🌟 Features
@@ -24,15 +24,15 @@ JavaScript (ES6+): For the core game logic, handling user interactions, managing
 ## 🚀 How to Run Locally
 To get a copy of this project up and running on your local machine for development and testing purposes, follow these simple steps:
 
-# 1.Clone the repository:
+## 1.Clone the repository:
 ```
 git clone https://github.com/yaswinipriyas24/Tic-Tac-Toe.git
 ```
-# 2.Navigate to the project directory:
+## 2.Navigate to the project directory:
 ```
 cd Tic-Tac-Toe
 ```
-# 3.Open index.html:
+## 3.Open index.html:
 Simply open the index.html file in your preferred web browser. You can usually do this by double-clicking the file.
 
 That's it! The game should load in your browser.
